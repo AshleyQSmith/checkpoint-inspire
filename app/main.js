@@ -7,12 +7,10 @@ import QuoteController from "./controllers/quote-controller.js"
 //TODO Dont forget to register all your controllers
 class App {
   todoController = new TodoController();
-  constructor() {
-    this.weatherController = new WeatherController();
+  weatherController = new WeatherController();
+  imageController = new ImageController();
+  quoteController = new QuoteController();
 
-    this.imageController = new ImageController();
-    this.quoteController = new QuoteController();
-  }
 }
 
 window["app"] = new App();
