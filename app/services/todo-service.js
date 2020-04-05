@@ -22,20 +22,35 @@ class TodoService {
   }
 
   toggleTodoStatusAsync(todoId) {
-    let toggledTodo = store.State.todos.find(todo => todo.id == todoId)
-    if (toggledTodo.completed == false){
-      let toggledTodo = {completed: true}
+    let todo = store.State.todos.find(todo => todo.id == todoId);
+    if (todo && todo.completed == false) {
+      todo.completed = true;
     } else {
-      let toggledTodo = {completed: false}
+      todo.completed = false;
     }
-    todoApi.put('todoId', toggledTodo)
-    .then(res => {this.getTodos()})
+    todoApi
+      .put(todoId, todo)
+      .then(res => {
+        this.getTodos();
+      })
+      .catch(err => console.error(err));
+  }
+
+
+    // let toggledTodo = store.State.todos.find(todo => todo.id == todoId)
+    // if (toggledTodo.completed == false){
+    //   let toggledTodo = {completed: true}
+    // } else {
+    //   let toggledTodo = {completed: false}
+    // }
+    // todoApi.put(todoId, toggledTodo)
+    // .then(res => {this.getTodos()})}
 
     //TODO Make sure that you found a todo,
     //		and if you did find one
     //		change its completed status to whatever it is not (ex: false => true or true => false)
     //TODO do you care about this data? or should you go get something else?
-  }
+  
 
   removeTodoAsync(todoId) {
     todoApi.delete(todoId)

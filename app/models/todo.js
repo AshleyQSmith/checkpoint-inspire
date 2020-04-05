@@ -13,7 +13,7 @@ export default class ToDo {
     <button type="button" class="close text-dark" onclick="app.todoController.removeTodo('${this.id}')">
     <span>&times;</span>
     </button>
-    <input class="form-check-input" type="checkbox" onclick="app.todoController.toggleTodoStatus('${this.id}')"value="" id="defaultCheck1"/>
+    <input class="form-check-input" type="checkbox" onclick="app.todoController.toggleTodoStatus('${this.id}')" value="" id="defaultCheck1"/>
     <label class="form-check-label" for="defaultCheck1">${this.description}</label>  
     </div> ` }
 
@@ -23,7 +23,7 @@ export default class ToDo {
       <button type="button" class="close text-dark" onclick="app.todoController.removeTodo('${this.id}')">
       <span>&times;</span>
       </button>
-      <input class="form-check-input" type="checkbox" onclick="app.todoController.toggleTodoStatus('${this.id}') checked "value="" id="defaultCheck1"/>
+      <input class="form-check-input" type="checkbox" onclick="app.todoController.toggleTodoStatus('${this.id}')" value="" id="defaultCheck1" checked/>
       <label class="form-check-label" for="defaultCheck1">${this.description}</label>  
       </div> ` }
 }
