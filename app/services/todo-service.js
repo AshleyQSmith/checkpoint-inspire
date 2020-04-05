@@ -1,25 +1,28 @@
 import store from "../store.js";
+import ToDo from "../models/todo.js";
 
 // @ts-ignore
 const todoApi = axios.create({
-  baseURL: "https://bcw-sandbox.herokuapp.com/api/YOURNAME/todos/",
-  timeout: 8000
+  baseURL: "https://bcw-sandbox.herokuapp.com/api/AshleyS/todos/",
+  timeout: 9000
 });
 
 class TodoService {
   getTodos() {
     console.log("Getting the Todo List");
-    todoApi.get();
-    //TODO Handle this response from the server
+    todoApi.get()
+    .then(res => {
+      let results = res.data.data.map(rawData => new ToDo(rawData));
+      store.commit('todos', results)})
   }
 
   addTodoAsync(todo) {
-    todoApi.post("", todo);
-    //TODO Handle this response from the server (hint: what data comes back, do you want this?)
+    todoApi.post("", todo)
+    .then(res => {this.getTodos()})
   }
 
   toggleTodoStatusAsync(todoId) {
-    let todo = store.State.todos.find(todo => todo._id == todoId);
+    let todo = store.State.todos.find(todo => todo.id == todoId);
     //TODO Make sure that you found a todo,
     //		and if you did find one
     //		change its completed status to whatever it is not (ex: false => true or true => false)
@@ -29,9 +32,8 @@ class TodoService {
   }
 
   removeTodoAsync(todoId) {
-    //TODO Work through this one on your own
-    //		what is the request type
-    //		once the response comes back, what do you need to insure happens?
+    todoApi.delete(todoId)
+    .then(res => {this.getTodos()})
   }
 }
 
