@@ -6,6 +6,7 @@ function _drawTodos() {
   let template = ''
   toDos.forEach(todo => template += todo.Template)
   document.getElementById("todos").innerHTML = template
+  document.getElementById("todo-count").innerHTML = toDos.length + " Chores To Do"
 }
 
 export default class TodoController {

@@ -15,33 +15,24 @@
 
 <body >
 
-<div class="container">
-<div id="bg-image"></div>
+<div class="container-fluid px-0">
+<span class="mx-0 px-0" id="bg-image"></span>
 
+	<div class="top-left p-1 shadow rounded" id="weather"></div>
 
+	<div class="bottom-center p-1 shadow rounded" id="quote"></div>
 
-
-	<div id="weather">
-		Your Weather Template
-	</div>
-
-	<div id="quote">
-		The Quote
-	</div>
-
-	<div>
-		A Todo List
-
-		<label class="bg-secondary text-light text-center w-100"><h3>TO DO's</h3></label>
+	<div class="top-right shadow p-2 rounded">
+		<label class="text-center w-100 mb-0"><h4>Pitter Patter...</h4><h5 class="mb-0">let's get at 'er!</h5></label>
+		<div class="text-center" id="todo-count"></div>
 		<form onsubmit="app.todoController.addTodo(event)">
-				<input type="text" class="form-control" name="taskName" placeholder="Add task..."/>
-				<button type="submit"  class="btn btn-primary mb-2 form-control">Submit</button>
+				<input type="text" class="form-control bg-dark border-dark text-light" name="taskName" placeholder="Add task"/>
+				<!-- <button type="submit"  class="btn btn-primary mb-2 form-control">Submit</button> -->
 		</form>
+
 		<div id="todos"></div>
 		<div id="todo-error"></div>
 		<!-- <form onsubmit=""></form> -->
-
-	</div>
 
 </div>
 

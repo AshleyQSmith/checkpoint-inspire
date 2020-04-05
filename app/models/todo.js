@@ -7,17 +7,24 @@ export default class ToDo {
   }
 
   get Template() {
+    if (this.completed == false) {
     return `
     <div class="form-check">
-    <button type="button" class="close text-danger" onclick="app.todoController.removeTodo('${this.id}')">
+    <button type="button" class="close text-dark" onclick="app.todoController.removeTodo('${this.id}')">
     <span>&times;</span>
     </button>
-    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1"/>
+    <input class="form-check-input" type="checkbox" onclick="app.todoController.toggleTodoStatus('${this.id}')"value="" id="defaultCheck1"/>
     <label class="form-check-label" for="defaultCheck1">${this.description}</label>  
-    </div> `
+    </div> ` }
+
+    else {
+      return `
+      <div class="form-check">
+      <button type="button" class="close text-dark" onclick="app.todoController.removeTodo('${this.id}')">
+      <span>&times;</span>
+      </button>
+      <input class="form-check-input" type="checkbox" onclick="app.todoController.toggleTodoStatus('${this.id}') checked "value="" id="defaultCheck1"/>
+      <label class="form-check-label" for="defaultCheck1">${this.description}</label>  
+      </div> ` }
 }
-
 }
-
-
-// onclick="app.todoController.toggleTodoStatus('${this.id}')"

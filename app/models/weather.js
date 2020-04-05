@@ -17,7 +17,7 @@ export default class Weather {
     return `
     <div>
     <h4>${this.city}</h4>
-    <h4>${this.fahrenheit}°</h4>
+    <h4 class="mb-0">${this.fahrenheit}°</h4>
     </div>
     `
   }

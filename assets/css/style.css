@@ -2,3 +2,33 @@
   color: red;
   font-size: 2em;
 }
+
+.container-fluid {
+  position: relative;
+  color: white;
+
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  background-color: rgb(111, 132, 156, 0.40);
+}
+
+.bottom-center {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: rgb(111, 132, 156, 0.40);
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background-color: rgb(111, 132, 156, 0.75);
+  color: rgba(0, 30, 70);
+}

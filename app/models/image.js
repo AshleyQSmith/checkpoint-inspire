@@ -6,7 +6,7 @@ export default class Image {
 
   get Template(){
     return `
-    <img src="${this.imgURL}" alt="" style="width:100%;">
+    <img class="img-fluid w-100" src="${this.imgURL}" alt="" style="width:100%;">
 
   `
   }
